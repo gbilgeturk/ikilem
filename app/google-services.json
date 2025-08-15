@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1053107534869",
+    "project_id": "ikilem-ac729",
+    "storage_bucket": "ikilem-ac729.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1053107534869:android:d18ce588a3cea2e597e21c",
+        "android_client_info": {
+          "package_name": "com.dreamlab.ikilem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD5xpCz7sG62lJPAPoEpPXoxVRowdMO3nQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
