@@ -2,7 +2,6 @@ package com.dreamlab.ikilem.data.local
 
 import com.dreamlab.ikilem.data.model.Category
 import com.dreamlab.ikilem.data.model.Dilemma
-import kotlin.random.Random
 
 object DilemmasLocalDataSource {
 
@@ -23,11 +22,11 @@ object DilemmasLocalDataSource {
         Dilemma("A5", Category.ASK_ILISKI, "Aileyle tanışma erken", "Aileyle tanışma geç"),
 
         // Kariyer & Para
-        Dilemma("K1", Category.KARİYER_PARA, "Yüksek maaş + sıkıcı iş", "Orta maaş + tutkunu iş"),
-        Dilemma("K2", Category.KARİYER_PARA, "Tam uzaktan çalışma", "Hibrit ama ekip sıcak"),
-        Dilemma("K3", Category.KARİYER_PARA, "Erken terfi, fazla sorumluluk", "Geç terfi, dengeli hayat"),
-        Dilemma("K4", Category.KARİYER_PARA, "İsim yapmış şirket", "Küçük ama özgür start‑up"),
-        Dilemma("K5", Category.KARİYER_PARA, "Primli belirsiz gelir", "Sabit ama düşük gelir"),
+        Dilemma("K1", Category.KARIYER_PARA, "Yüksek maaş + sıkıcı iş", "Orta maaş + tutkunu iş"),
+        Dilemma("K2", Category.KARIYER_PARA, "Tam uzaktan çalışma", "Hibrit ama ekip sıcak"),
+        Dilemma("K3", Category.KARIYER_PARA, "Erken terfi, fazla sorumluluk", "Geç terfi, dengeli hayat"),
+        Dilemma("K4", Category.KARIYER_PARA, "İsim yapmış şirket", "Küçük ama özgür start‑up"),
+        Dilemma("K5", Category.KARIYER_PARA, "Primli belirsiz gelir", "Sabit ama düşük gelir"),
 
         // Macera & Risk
         Dilemma("M1", Category.MACERA, "Tek başına seyahat", "Kalabalık grupla seyahat"),
@@ -44,7 +43,7 @@ object DilemmasLocalDataSource {
         Dilemma("F5", Category.FANTASTIK, "Her gün 25. saat", "Haftada 3 gün çalışma"),
         // Ek birkaç tane daha karışık
         Dilemma("X1", Category.GUNLUK, "Kahvaltıda hep tuzlu", "Kahvaltıda hep tatlı"),
-        Dilemma("X2", Category.KARİYER_PARA, "Küçük şehirde ucuz yaşam", "Büyük şehirde pahalı yaşam"),
+        Dilemma("X2", Category.KARIYER_PARA, "Küçük şehirde ucuz yaşam", "Büyük şehirde pahalı yaşam"),
         Dilemma("X3", Category.ASK_ILISKI, "Sürprizleri sevmek", "Planlı ilerlemek"),
         Dilemma("X4", Category.MACERA, "Yüksek tempolu şehir", "Sakin sahil kasabası"),
         Dilemma("X5", Category.FANTASTIK, "Günde 4 saat uyku yetmesi", "Yemek yemeden doymak")

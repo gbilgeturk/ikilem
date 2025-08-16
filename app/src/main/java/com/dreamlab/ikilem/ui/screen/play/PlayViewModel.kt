@@ -1,11 +1,13 @@
 package com.dreamlab.ikilem.ui.screen.play
 
 import android.app.Application
+import android.util.Log
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.dreamlab.ikilem.data.model.Category
 import com.dreamlab.ikilem.data.model.Dilemma
 import com.dreamlab.ikilem.data.repo.DilemmaRepository
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
@@ -113,21 +115,38 @@ class PlayViewModel(app: Application) : AndroidViewModel(app) {
     fun chooseA() = vote(true)
     fun chooseB() = vote(false)
 
+    private fun ensureAnonAuth(then: () -> Unit) {
+        val auth = FirebaseAuth.getInstance()
+        val user = auth.currentUser
+        if (user != null) {
+            then()
+        } else {
+            auth.signInAnonymously()
+                .addOnSuccessListener { then() }
+                .addOnFailureListener { e -> Log.e("Auth", "Anon sign-in failed", e) }
+        }
+    }
+
     private fun vote(choseA: Boolean) {
         val d = _current.value ?: return
-        if (_isVoting.value) return // double tap koruması
+        if (_isVoting.value) return
         _isVoting.value = true
 
         val field = if (choseA) "votesA" else "votesB"
-        db.collection("dilemmas").document(d.id)
-            .set(mapOf(field to FieldValue.increment(1)), SetOptions.merge())
-            .addOnSuccessListener {
-                _hasChosen.value = true      // yüzdeleri göster
-                _isVoting.value = false
-            }
-            .addOnFailureListener {
-                _isVoting.value = false
-            }
+
+        // 🔐 önce auth, sonra yaz
+        ensureAnonAuth {
+            db.collection("dilemmas").document(d.id)
+                .set(mapOf(field to FieldValue.increment(1)), SetOptions.merge())
+                .addOnSuccessListener {
+                    _hasChosen.value = true
+                    _isVoting.value = false
+                }
+                .addOnFailureListener { e ->
+                    _isVoting.value = false
+                    Log.e("Vote", "Write failed", e)
+                }
+        }
     }
 
     override fun onCleared() {

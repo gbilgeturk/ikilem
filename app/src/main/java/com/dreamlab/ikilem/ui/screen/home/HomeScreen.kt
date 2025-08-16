@@ -2,17 +2,13 @@ package com.dreamlab.ikilem.ui.screen.home
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.items
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.rounded.Casino
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.dreamlab.ikilem.data.model.Category
-import com.dreamlab.ikilem.ui.navigation.Route
 
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
@@ -22,12 +18,9 @@ import androidx.compose.material.icons.outlined.Favorite
 import androidx.compose.material.icons.outlined.Money
 import androidx.compose.material.icons.outlined.Psychology
 import androidx.compose.material.icons.outlined.Today
-import androidx.compose.material3.*
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
 
 @Composable
 fun HomeScreen(navController: NavController) {
@@ -92,7 +85,7 @@ private data class CategoryUi(
 private fun categoryUiList() = listOf(
     CategoryUi(Category.GUNLUK, "Günlük", "Günlük hayat ikilemleri", Icons.Outlined.Today, Color(0xFF6366F1), Color(0xFF22D3EE)),
     CategoryUi(Category.ASK_ILISKI, "Aşk & İlişki", "Kalp mi akıl mı?", Icons.Outlined.Favorite, Color(0xFFFF6B6B), Color(0xFFFFD93D)),
-    CategoryUi(Category.KARİYER_PARA, "Kariyer & Para", "Tutku vs gelir", Icons.Outlined.Money, Color(0xFF10B981), Color(0xFF60A5FA)),
+    CategoryUi(Category.KARIYER_PARA, "Kariyer & Para", "Tutku vs gelir", Icons.Outlined.Money, Color(0xFF10B981), Color(0xFF60A5FA)),
     CategoryUi(Category.MACERA, "Macera", "Konfor alanı dışı", Icons.Outlined.Explore, Color(0xFFFB7185), Color(0xFFF59E0B)),
     CategoryUi(Category.FANTASTIK, "Fantastik", "Gerçek üstü seçimler", Icons.Outlined.Psychology, Color(0xFF8B5CF6), Color(0xFFEC4899))
 )

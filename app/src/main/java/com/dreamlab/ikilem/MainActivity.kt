@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
             setContent {
                 IkilemTheme {
                     val nav = rememberNavController()
-                    AppNavHost(navController = nav, startDest = if (seen) Route.Home.route else Route.Onboarding.route)
+                    AppNavHost(navController = nav, startDest = Route.Splash.route)
                 }
             }
         }
